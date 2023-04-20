@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import DisplayMovies from './DisplayMovies';
+import DisplayMoviesHelper from './DisplayMoviesHelper';
 
 const SearchBar = ({ onSearch, onShow }) => {
   const [query, setQuery] = useState('');
@@ -33,7 +33,7 @@ const SearchBar = ({ onSearch, onShow }) => {
       />
       <button type='submit'>Search</button>
 
-      {!onShow && <DisplayMovies movies={results} heading={query} />}
+      {!onShow && <DisplayMoviesHelper movies={results} heading={query} />}
     </form>
   );
 };
