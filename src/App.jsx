@@ -1,7 +1,7 @@
 import './App.css';
 import SearchBar from './componants/SearchBar';
-import PopularMovies from './componants/PopularMovies';
 import { useState } from 'react';
+import DisplayAllMovies from './componants/DisplayAllMovies';
 
 function App() {
   const [search, setSearch] = useState(true);
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className='App'>
       <SearchBar onSearch={displayHandler} onShow={search} />
-      {search && <PopularMovies />}
+      {search && <DisplayAllMovies />}
     </div>
   );
 }

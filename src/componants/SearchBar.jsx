@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import DisplayMovies from './DisplayMovies';
 
 const SearchBar = ({ onSearch, onShow }) => {
   const [query, setQuery] = useState('');
@@ -32,18 +33,7 @@ const SearchBar = ({ onSearch, onShow }) => {
       />
       <button type='submit'>Search</button>
 
-      {!onShow &&
-        results.map((result) => (
-          <div key={result.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w185${result.poster_path}`}
-              alt={`${result.title} poster`}
-            />
-            <h2>{result.title}</h2>
-            <p>{result.release_date}</p>
-            <p>{result.overview}</p>
-          </div>
-        ))}
+      {!onShow && <DisplayMovies movies={results} heading={query} />}
     </form>
   );
 };
