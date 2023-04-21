@@ -1,0 +1,62 @@
+/* Styles for the slider container */
+.slick-slider {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Styles for the slider dots */
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #fff;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ff6347;
+}
+
+/* Styles for each movie carousel slide */
+
+.moviePoster {
+  box-shadow: rgb(255, 254, 254) 0px 5px 15px;
+  border-radius: 4px;
+  width: 90%;
+}
+
+h3 {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+p.overview {
+  margin-top: 8px;
+  max-height: 96px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.slider {
+  padding: 20px;
+  height: 500px;
+}
+.heading {
+  background-color: white;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 10px;
+  align-items: center;
+}
