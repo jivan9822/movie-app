@@ -5,6 +5,8 @@
 }
 
 .container {
+  position: relative;
+  width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
   padding-bottom: 0.5rem;
@@ -13,7 +15,11 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
+.formSearch {
+  position: absolute;
+  left: 4%;
+  top: 2%;
+}
 .container::-webkit-scrollbar {
   display: none;
 }

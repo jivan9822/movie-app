@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
 import DisplayMoviesHelper from './DisplayMoviesHelper';
+import classes from './popmov.module.css';
 
 const SearchBar = ({ onSearch, onShow }) => {
   const api_key = import.meta.env.VITE_API_KEY;
@@ -25,7 +25,7 @@ const SearchBar = ({ onSearch, onShow }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={classes.formSearch}>
       <input
         type='text'
         placeholder='Search for a movie...'
