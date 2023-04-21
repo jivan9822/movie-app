@@ -14,6 +14,13 @@ const SearchBar = ({ onSearch, onShow }) => {
       onSearch(true);
     }
   };
+  function handleEscape(event) {
+    if (event.key === 'Escape') {
+      // handle the Escape key press here
+      onSearch(true);
+      setQuery('');
+    }
+  }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,14 +32,17 @@ const SearchBar = ({ onSearch, onShow }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={classes.formSearch}>
-      <input
-        type='text'
-        placeholder='Search for a movie...'
-        value={query}
-        onChange={handleInputChange}
-      />
-      <button type='submit'>Search</button>
+    <form onSubmit={handleSubmit}>
+      <div className={classes.formSearch}>
+        <input
+          type='text'
+          placeholder='Search for a movie...'
+          value={query}
+          onChange={handleInputChange}
+          onKeyDown={handleEscape}
+        />
+        <button type='submit'>Search</button>
+      </div>
 
       {!onShow && <DisplayMoviesHelper movies={results} heading={query} />}
     </form>
