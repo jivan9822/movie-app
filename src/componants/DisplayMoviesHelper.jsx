@@ -23,7 +23,7 @@ const DisplayMoviesHelper = ({ movies, heading }) => {
         >
           {movies.length &&
             movies.map((movie) => (
-              <div key={movie.id} style={{ border: '2px solid white' }}>
+              <div key={movie.id} className={classes.smallContainer}>
                 <img
                   className={classes.moviePoster}
                   src={
@@ -35,7 +35,9 @@ const DisplayMoviesHelper = ({ movies, heading }) => {
                 />
                 <h3>{movie.title}</h3>
                 <p>{movie.release_date}</p>
-                <p>{movie.overview.slice(0, 100)}</p>
+                <p className={classes.paraDetails}>
+                  {movie.overview.slice(0, 100)}
+                </p>
               </div>
             ))}
         </div>
