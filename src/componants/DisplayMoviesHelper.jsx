@@ -13,18 +13,23 @@ const DisplayMoviesHelper = ({ movies, heading }) => {
     <div>
       <h2 className={classes.heading}>{heading}</h2>
       <Slider {...settings} className={classes.slider}>
-        {movies.map((movie) => (
-          <div key={movie.id} style={{ border: '2px solid white' }}>
-            <img
-              className={classes.moviePoster}
-              src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
-              alt={movie.title}
-            />
-            <h3>{movie.title}</h3>
-            <p>{movie.release_date}</p>
-            <p>{movie.overview.slice(0, 100)}</p>
-          </div>
-        ))}
+        {movies.length &&
+          movies.map((movie) => (
+            <div key={movie.id} style={{ border: '2px solid white' }}>
+              <img
+                className={classes.moviePoster}
+                src={
+                  movie.poster_path
+                    ? `https://image.tmdb.org/t/p/w185${movie.poster_path}`
+                    : 'https://via.placeholder.com/500x750.png?text=Poster+Not+Available'
+                }
+                alt={movie.title}
+              />
+              <h3>{movie.title}</h3>
+              <p>{movie.release_date}</p>
+              <p>{movie.overview.slice(0, 100)}</p>
+            </div>
+          ))}
       </Slider>
     </div>
   );

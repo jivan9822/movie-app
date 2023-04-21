@@ -5,6 +5,7 @@ import DisplayAllMovies from './componants/DisplayAllMovies';
 
 function App() {
   const [search, setSearch] = useState(true);
+
   const displayHandler = (data) => {
     setSearch(data);
   };

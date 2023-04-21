@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import DisplayMoviesHelper from './DisplayMoviesHelper';
 
 const SearchBar = ({ onSearch, onShow }) => {
+  const api_key = import.meta.env.VITE_API_KEY;
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
@@ -17,9 +19,8 @@ const SearchBar = ({ onSearch, onShow }) => {
     event.preventDefault();
     onSearch(false);
     const response = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=190cad72b06b0abd09dc8daf263c39fb&query=${query}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}`
     );
-
     setResults(response.data.results);
   };
 

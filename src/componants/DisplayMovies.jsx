@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import DisplayMoviesHelper from './DisplayMoviesHelper';
-import store from '../store';
 
-const DisplayMovies = ({ onPopular, heading }) => {
+const DisplayMovies = ({ heading }) => {
   const [movies, setMovies] = useState([]);
-  const api_key = useSelector((state) => state.api_key);
+  const data = useSelector((state) => state);
+
   useEffect(() => {
-    const fetchMovies = async () => {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${heading}?api_key=${api_key}`
-      );
-      if (response) {
-        setMovies(response.data.results);
-      }
-    };
+    if (Object.keys(data.movies).length > 0) {
+      setMovies(data.movies);
+    }
+  }, [data]);
 
-    fetchMovies();
-  }, [onPopular]);
+  if (Object.keys(movies).length === 0) {
+    return <h1>Loading</h1>;
+  }
 
-  return (
-    <div>
-      <DisplayMoviesHelper movies={movies} heading={heading} />
-    </div>
-  );
+  return <DisplayMoviesHelper movies={movies[heading]} heading={heading} />;
 };
 
 export default DisplayMovies;
