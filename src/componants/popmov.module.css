@@ -8,7 +8,6 @@
   overflow-x: scroll;
   overflow-y: hidden;
   padding-bottom: 0.5rem;
-  /* white-space: nowrap; */
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
@@ -20,17 +19,31 @@
 }
 .smallContainer {
   width: 300px;
-  height: 600px;
-  border: 2px solid white;
+  height: 400px;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
 }
 .smallContainer img {
-  width: 300px;
-  height: 400px;
+  width: 200px;
+  height: 250px;
 }
+/* @media screen and (min-width: 800px) {
+  .smallContainer {
+    width: 500px;
+    height: 300px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+  }
+  .smallContainer img {
+    width: 200px;
+    height: 200px;
+  }
+} */
 .paraDetails {
   max-width: 100%;
+  overflow: hidden;
   word-wrap: break-word;
 }
 .slider {
