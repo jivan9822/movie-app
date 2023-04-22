@@ -17,8 +17,8 @@ const DisplayMoviesHelper = ({ movies, heading }) => {
                 alt={movie.title}
               />
               <h4>{movie.title}</h4>
-              <p>{movie.release_date}</p>
-              <p>{movie.overview.slice(0, 100)}</p>
+              <p className={classes.textCont}>{movie.release_date}</p>
+              <p className={classes.textCont}>{movie.overview.slice(0, 100)}</p>
             </div>
           ))}
       </div>

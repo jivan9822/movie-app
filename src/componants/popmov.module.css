@@ -25,6 +25,10 @@
 p {
   text-align: center;
 }
+.textCont {
+  color: rgb(185, 49, 49);
+  font-family: cursive, Arial, Helvetica, sans-serif;
+}
 h3 {
   color: black;
   margin-bottom: 5px;
