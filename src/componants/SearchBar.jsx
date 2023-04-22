@@ -14,6 +14,7 @@ const SearchBar = ({ onSearch, onShow }) => {
       onSearch(true);
     }
   };
+
   function handleEscape(event) {
     if (event.key === 'Escape') {
       // handle the Escape key press here
@@ -40,6 +41,7 @@ const SearchBar = ({ onSearch, onShow }) => {
           value={query}
           onChange={handleInputChange}
           onKeyDown={handleEscape}
+          autoFocus
         />
         <button type='submit'>Search</button>
       </div>

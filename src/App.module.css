@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+}
+.body {
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  overflow: hidden;
+  background-color: rgb(74, 72, 72);
+}

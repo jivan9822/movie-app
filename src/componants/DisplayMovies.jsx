@@ -3,8 +3,16 @@ import { useSelector } from 'react-redux';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import DisplayMoviesHelper from './DisplayMoviesHelper';
-
+let movie = {
+  'Now Playing': 'now_playing',
+  Popular: 'popular',
+  'Top Rated': 'top_rated',
+  'Up Coming': 'upcoming',
+};
 const DisplayMovies = ({ heading }) => {
+  if (movie[heading]) {
+    heading = movie[heading];
+  }
   const [movies, setMovies] = useState([]);
   const data = useSelector((state) => state);
 

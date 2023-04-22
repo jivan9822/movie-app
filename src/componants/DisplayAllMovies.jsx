@@ -1,12 +1,12 @@
 import DisplayMovies from './DisplayMovies';
 
-const DisplayAllMovies = (props) => {
+const DisplayAllMovies = ({ choice }) => {
   return (
     <div>
-      <DisplayMovies heading={'now_playing'} />
-      <DisplayMovies heading={'popular'} />
+      <DisplayMovies heading={choice} />
+      {/* <DisplayMovies heading={'popular'} />
       <DisplayMovies heading={'top_rated'} />
-      <DisplayMovies heading={'upcoming'} />
+      <DisplayMovies heading={'upcoming'} /> */}
     </div>
   );
 };
