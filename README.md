@@ -4,7 +4,7 @@ This is a React web application that displays a list of popular movies and allow
 
 ## Instructions
 
-1. Clone the repository: `git clone https://github.com/jivan9822/movie-app
+1. Clone the repository: `git clone https://github.com/jivan9822/movie-app.git`
 2. Install the dependencies: `npm install`
 3. Register for an API key from TMDb (https://www.themoviedb.org/documentation/api)
 4. Create a `.env` file in the root directory and add your API key like this:
