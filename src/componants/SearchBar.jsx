@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import DisplayMoviesHelper from './DisplayMoviesHelper';
 import classes from './popmov.module.css';
 
-const SearchBar = ({ onSearch, onShow }) => {
+const SearchBar = ({ onSearch }) => {
   const api_key = import.meta.env.VITE_API_KEY;
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
@@ -11,25 +11,25 @@ const SearchBar = ({ onSearch, onShow }) => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
     if (!event.target.value.length) {
-      onSearch(true);
+      onSearch(null);
     }
   };
 
   function handleEscape(event) {
     if (event.key === 'Escape') {
       // handle the Escape key press here
-      onSearch(true);
+      onSearch(null);
       setQuery('');
     }
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    onSearch(false);
     const response = await axios.get(
       `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${query}`
     );
-    setResults(response.data.results);
+    // setResults(response.data.results);
+    onSearch({ movies: response.data.results, query });
   };
 
   return (
@@ -45,8 +45,6 @@ const SearchBar = ({ onSearch, onShow }) => {
         />
         <button type='submit'>Search</button>
       </div>
-
-      {!onShow && <DisplayMoviesHelper movies={results} heading={query} />}
     </form>
   );
 };

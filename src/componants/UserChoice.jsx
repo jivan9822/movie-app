@@ -1,9 +1,10 @@
 import classes from './popmov.module.css';
 
-const UserChoice = ({ onUserChoice }) => {
+const UserChoice = ({ onUserChoice, onSetDisplay }) => {
   const onChoiceHandler = (e, value) => {
     e.preventDefault();
     onUserChoice(value);
+    onSetDisplay();
   };
   return (
     <div className={classes.movieTag}>

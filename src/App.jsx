@@ -7,23 +7,35 @@ import DisplayMoviesHelper from './componants/DisplayMoviesHelper';
 import DisplayMovies from './componants/DisplayMovies';
 
 function App() {
-  const [search, setSearch] = useState(true);
+  const [search, setSearch] = useState(null);
   const [userChoice, setUserChoice] = useState('now_playing');
+  const [movies, setMovies] = useState([]);
   const getUserChoice = (data) => {
     setUserChoice(data);
   };
-
-  const displayHandler = (data) => {
-    setSearch(data);
+  const setSearchFun = () => {
+    setSearch(null);
+  };
+  const onUserSearch = (searchData) => {
+    if (searchData) {
+      const { movies, query } = searchData;
+      setMovies(movies);
+      setSearch(query);
+    } else {
+      setSearch(null);
+      setUserChoice('now_playing');
+    }
   };
   return (
     <div className={classes.body}>
-      <SearchBar onSearch={displayHandler} onShow={search} />
-      <UserChoice onUserChoice={getUserChoice} />
-      {search ? (
+      <div className={classes.bodySub}>
+        <SearchBar onSearch={onUserSearch} />
+        <UserChoice onUserChoice={getUserChoice} onSetDisplay={setSearchFun} />
+      </div>
+      {!search ? (
         <DisplayAllMovies choice={userChoice} />
       ) : (
-        <DisplayMovies heading={userChoice} />
+        <DisplayMoviesHelper movies={movies} heading={search} />
       )}
     </div>
   );
