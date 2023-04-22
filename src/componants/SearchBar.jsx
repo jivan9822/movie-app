@@ -10,9 +10,6 @@ const SearchBar = ({ onSearch }) => {
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
-    if (!event.target.value.length) {
-      onSearch(null);
-    }
   };
 
   function handleEscape(event) {
@@ -30,6 +27,7 @@ const SearchBar = ({ onSearch }) => {
     );
     // setResults(response.data.results);
     onSearch({ movies: response.data.results, query });
+    setQuery('');
   };
 
   return (
