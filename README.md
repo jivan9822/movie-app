@@ -2,4 +2,4 @@
 
 # Note
 
-    I made it responsive on branch mainResponsive. Please CheckOut
+    I made it responsive on branch mainResponsive. Please CheckOut.
