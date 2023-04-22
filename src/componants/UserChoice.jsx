@@ -1,5 +1,6 @@
 import classes from './popmov.module.css';
 
+// This component is just to display get user choice
 const UserChoice = ({ onUserChoice, onSetDisplay }) => {
   const onChoiceHandler = (e, value) => {
     e.preventDefault();
